@@ -259,10 +259,22 @@
 <div class="brief">
 
   <div class="brief-section">
-    <div class="brief-label">The problem</div>
-    <h2>Customers are paying more than they need to — and don't know it</h2>
-    <p>Our customers are on Time-of-Use tariffs where electricity prices vary significantly across the day. Most don't understand this, and almost none are actively shifting their usage to take advantage of cheaper windows.</p>
-    <p>The result: they consistently run high-consumption appliances — EV chargers, dishwashers, washing machines — during the most expensive hours of the day, often out of habit rather than necessity.</p>
+    <div class="brief-label">Submission note</div>
+    <h2>Hi Pavel, and the team reviewing this</h2>
+    <p>Below is my submission for the product discovery case. I've structured it as I would a real discovery brief: starting with a reframe of the problem, walking through the process I ran, and landing on a prototype with a clear validation plan.</p>
+    <p>One note upfront: I used AI tooling — specifically Claude — extensively throughout this process, to research, to prototype, and to pressure-test my thinking. I've been transparent about this because I think it's directly relevant to the role. A discovery specialist who can use AI to compress a week of work into a day, without sacrificing rigour, is a more useful one. I'll point to where it helped and where I had to make deliberate decisions it couldn't make for me.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="brief-section">
+    <div class="brief-label">Reframing the problem</div>
+    <h2>The assumption is educational. The real problem is behavioural.</h2>
+    <p>The case states that 60% of homeowners don't understand Time-of-Use tariffs, and asks for a prototype to address this. My first instinct was to question the framing.</p>
+    <p>The assumption embedded in the prompt is that the problem is educational — that if customers understood ToU, behaviour would follow. But there's a well-documented gap between understanding a concept and changing a habit. Someone can understand that exercising is good for them and still not go to the gym.</p>
+    <p>After reviewing academic literature on behaviour change (specifically the Fogg Behaviour Model and work on energy feedback systems), and drawing on what I know about Eliq's core proposition — engagement and behaviour change as a service, not just monitoring — I reframed the problem as:</p>
+    <p style="border-left: 3px solid #22c55e; padding-left: 16px; color: #1a1a1a; font-style: italic; margin: 16px 0;">How might we make the economic consequence of peak-hour usage so immediate and personal that a busy homeowner feels motivated to act, right now, without needing to first understand tariff mechanics?</p>
+    <p>This shift from education-first to outcome-first drove every subsequent decision: the button label ("Save money", not "ToU guide"), the copy throughout the tour ("Evening is costing you the most"), and the single-tap commitment flow at the end.</p>
   </div>
 
   <div class="brief-grid">
@@ -281,22 +293,62 @@
   <hr class="divider">
 
   <div class="brief-section">
-    <div class="brief-label">The approach</div>
-    <p>Rather than educating customers about tariff mechanics (confusing, jargon-heavy), we lead with the personal financial outcome: <em>here's how much you could save, based on your own data.</em></p>
-    <p>An AI-powered guided tour overlays the customer's existing hourly usage chart — no new screens — and walks them through their specific patterns, explaining why certain hours cost more, and pointing at evidence in their own data to suggest 2–3 small timing changes.</p>
-    <p>The goal is behaviour change, but even customers who don't change will leave better informed. Education is the floor; savings are the ceiling.</p>
+    <div class="brief-label">Process</div>
+    <p>I structured the work the way I'd structure any early-stage discovery sprint — compressed to fit the case timeframe, but methodologically consistent with how I'd run it inside an organisation.</p>
   </div>
 
   <div class="brief-section">
+    <div class="brief-label">1 — Time-boxing and scoping</div>
+    <p>Before starting, I set a rough constraint: treat this as a two-day discovery sprint. Day one for research and problem definition, day two for prototyping and validation thinking. This forced prioritisation and prevented the brief from expanding indefinitely. In a real engagement at Eliq, this would start with alignment on scope with the PM and the relevant business customer — agreeing what question we're actually trying to answer before touching any tooling.</p>
+  </div>
+
+  <div class="brief-section">
+    <div class="brief-label">2 — Research</div>
+    <p>I ran three parallel research tracks. On the <strong>end-user side</strong>, I reviewed existing studies on energy app engagement, consumer understanding of dynamic pricing, and the psychology of behaviour change in utility contexts. Key finding: confusion about ToU is real, but it's a symptom. The root cause is that the price signal is invisible at the moment of action — you don't feel the cost when you press start on the dishwasher at 18:30.</p>
+    <p>On the <strong>market side</strong>, I looked at how Eliq sits within the European energy retail landscape. Dynamic pricing tariffs are expanding across Sweden, the UK, the Netherlands and elsewhere, partly driven by grid pressure and partly by regulatory nudges toward demand-side flexibility. This makes the problem Eliq is solving increasingly commercially urgent for their utility clients — not a nice-to-have feature, but something utilities will need to offer to remain competitive and compliant.</p>
+    <p>On the <strong>product side</strong>, I considered Eliq's B2B2C model carefully. The end-user is a homeowner. The paying customer is a utility or energy retailer. Any solution needs to work at two levels: it needs to genuinely help the homeowner, and it needs to be something a utility can point to as a measurable engagement and retention driver. This informed how I framed the KPIs — not just "did users change behaviour" but a full funnel that a commercial team could present to a utility client.</p>
+  </div>
+
+  <div class="brief-section">
+    <div class="brief-label">3 — The missing signal: commercial input</div>
+    <p>One element I deliberately could not replicate in this process is the commercial signal. In a real Eliq discovery cycle, I'd expect this from two sources: the sales team (what are utilities asking for, what objections are they hearing) and customer success (what are business customers reporting — complaints, churn triggers, support tickets). These conversations often reveal the real priority faster than any desk research.</p>
+    <p>I've flagged this explicitly because I think it's the most important structural thing to get right when setting up discovery at an organisation like Eliq. The risk in a B2B2C model is that the discovery process optimises for end-user satisfaction while the business customer is actually asking for something different — say, a reduction in inbound support calls about billing confusion, or a metric they can present in a quarterly review. Getting that signal early, and building it into how problems are framed, is something I'd want to establish as a repeatable process from day one.</p>
+  </div>
+
+  <div class="brief-section">
+    <div class="brief-label">4 — Prototyping</div>
+    <p>I built the prototype in Claude, iterating in real time. The core design decision was to overlay the guided tour on the existing hourly usage chart rather than introducing a new screen — this respects the user's existing mental model and keeps the learning grounded in their own data. Annotations point directly at the user's actual usage patterns; suggestions reference specific bars in the chart.</p>
+    <p>Key iteration decisions: removed "ToU guide" as the button label after recognising it front-loads jargon before value; collapsed "commit" and "remind me" into a single "Do it" button to reduce cognitive overhead for a user who is time-poor; kept legend language as "Cheap / Standard / Expensive" rather than tariff terminology — same information, no prior knowledge required.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="brief-section">
+    <div class="brief-label">What "AI-powered" actually means here</div>
+    <p>The task asks for an AI-powered prototype. The prototype simulates AI behaviour — no real model responses are generated. But it's worth being explicit about what the real AI layer would do, and why it matters, because this is a product argument rather than a technical one.</p>
+    <p>There are three distinct places AI does meaningful work in this concept. The first is <strong>personalisation of the analysis</strong>. A rule-based system could highlight peak hours generically. AI is what makes it possible to say "you specifically plugged in your EV at 19:30 on 4 of the last 5 Tuesdays" — pattern recognition across a user's own time-series data. This is what makes the suggestion engine feel credible rather than generic.</p>
+    <p>The second is <strong>dynamic generation of the coaching copy</strong>. The tour script in the prototype is hardcoded. In a real product, each step would be generated based on the user's actual data — different appliance patterns, different saving amounts, different household profiles. This is where LLM-generated copy earns its place: the difference between "your dishwasher" and "a dishwasher" is the difference between a nudge that lands and one that doesn't.</p>
+    <p>The third, and hardest, is <strong>suggestion ranking and feasibility inference</strong>. Not every user can shift their EV charging — some have fixed commute constraints, some have no EV. An AI layer that infers which suggestions are actually actionable for a given user, rather than serving the same three to everyone, is what separates a meaningful nudge from noise. This is a V2 problem, but naming it matters — and it's also a testable hypothesis: does AI-personalised suggestion ranking improve commit rates compared to generic suggestions? That experiment belongs in the canary cohort design.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="brief-section">
     <div class="brief-label">Success metrics</div>
-    <p>We're measuring a four-stage funnel: <strong>hook rate</strong> (badge taps ÷ impressions) → <strong>completion rate</strong> (guide completions ÷ starts) → <strong>commit rate</strong> (reminders set ÷ completions) → <strong>behaviour change</strong> (sustained peak reduction vs control group over 6–8 weeks).</p>
+    <p>A four-stage funnel: <strong>KPI 0 — hook rate</strong> (badge taps ÷ impressions, isolates whether the value proposition lands) → <strong>KPI 1 — completion rate</strong> (guide starts ÷ completions) → <strong>KPI 2 — commit rate</strong> ("Do it" taps ÷ completions) → <strong>KPI 3 — behaviour change</strong> (sustained peak-hour reduction vs a matched control group, measured over 6–8 weeks). The control group is non-negotiable for KPI 3 — without it, any observed change could be seasonal variation or regression to the mean.</p>
+  </div>
+
+  <div class="brief-section">
+    <div class="brief-label">Why this fits Eliq's context</div>
+    <p>Eliq's value proposition to utilities is, essentially: we turn passive meter data into active engagement. The gap this prototype addresses — between a customer who sees their usage and a customer who changes it — is precisely where that value lives. A utility that can show measurable peak-shifting among its customer base has a stronger case for demand-side flexibility programmes, a better retention story, and a direct response to the regulatory pressure building around consumer energy literacy across European markets.</p>
+    <p>The approach is also white-label ready in spirit: the "Save money" mechanic, the chart annotation layer, and the suggestion engine are all components that could sit inside Eliq's existing app framework without requiring a new product surface.</p>
   </div>
 
   <hr class="divider">
 
   <div class="brief-section">
     <div class="brief-label">What to look for in the prototype</div>
-    <p>Tap <strong>"Save money"</strong> in the app header to start the guided tour. The chart animates to highlight each pricing window in turn, with annotations pointing directly at your usage patterns. The tour ends with 3 personalised suggestions — each with a single "Do it" button that sets a reminder and commits in one tap.</p>
+    <p>Tap <strong>"Save money"</strong> in the app header to start the guided tour. The chart highlights each pricing window in turn, with live annotations pointing at the usage patterns. The tour ends with 3 personalised suggestions — each with a single "Do it" button that sets a reminder and commits in one tap.</p>
     <p>Key questions for reviewers: Does the hook feel credible? Does the chart annotation make the pricing difference visceral? Do the suggestions feel personal or generic?</p>
   </div>
 
